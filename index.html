@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Notas</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+    h1 { border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    textarea { width: 100%; height: 300px; font-family: monospace; margin-top: 10px; }
+    button { margin-top: 10px; padding: 5px 10px; }
+  </style>
+</head>
+<body>
+  <h1>Minhas Notas</h1>
+  <textarea id="nota" placeholder="Escreva aqui suas notas..."></textarea>
+  <p>
+    <button onclick="salvar()">Salvar localmente</button>
+    <button onclick="carregar()">Carregar último</button>
+  </p>
+  <script>
+    function salvar() {
+      localStorage.setItem('nota', document.getElementById('nota').value);
+      alert('Nota salva no navegador.');
+    }
+    function carregar() {
+      const saved = localStorage.getItem('nota');
+      document.getElementById('nota').value = saved || '';
+      alert('Nota carregada.');
+    }
+  </script>
+</body>
+</html>
